@@ -1,0 +1,39 @@
+# Construir el proyecto
+mvn clean package
+
+# Construir imagen Docker usando Dockerfile
+docker build -t turnos .
+
+# Levantar servicios con Docker Compose
+docker-compose up
+
+# Levantar en segundo plano
+docker-compose up -d
+
+# Ver contenedores activos
+docker ps
+
+# Ver todos los contenedores (incluidos los detenidos)
+docker ps -a
+
+# Detener los servicios
+docker-compose down
+
+# Eliminar contenedores detenidos
+docker container prune
+
+# Eliminar imagenes no utilizadas
+docker image prune
+
+# Eliminar volumenes (puede borrar datos de MySQL persistidos)
+docker volume prune
+
+# Ver volumenes
+docker volume ls
+
+# Ver redes
+docker network ls
+
+# Ingresar al contenedor MySQL (si es necesario)
+docker exec -it <nombre_contenedor_mysql> bash
+mysql -u turnos -p

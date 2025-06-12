@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: turnos_db
+      MYSQL_USER: turnos
+      MYSQL_PASSWORD: turnos
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - turnos-network
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/turnos_db
+      SPRING_DATASOURCE_USERNAME: turnos
+      SPRING_DATASOURCE_PASSWORD: turnos
+    depends_on:
+      - mysql
+    command: sh -c "sleep 15 && java -jar app.jar"
+    networks:
+      - turnos-network
+
+volumes:
+  mysql_data:
+
+networks:
+  turnos-network:
