@@ -14,7 +14,10 @@ services:
       - turnos-network
 
   app:
-    build: .
+    image: openjdk:21-jdk-slim
+    working_dir: /app
+    volumes:
+      - ./target/turnos.jar:/app/app.jar
     ports:
       - "8080:8080"
     environment:
