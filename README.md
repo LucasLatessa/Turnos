@@ -40,5 +40,5 @@ cd Turnos
 2. Construir y levantar los contenedores con Docker Compose:
 
 ```bash
-docker-compose up --build -d
+docker-compose up
 ```
