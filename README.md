@@ -22,7 +22,7 @@ La idea principal es que puedas gestionar turnos para diferentes profesionales o
 
 La aplicacion esta desplegada en una instancia EC2 en AWS con direccion IP publica:
 
-[http://18.191.176.209:8080/professionals](http://18.191.176.209:8080/professionals)
+[http://18.191.176.209:8080/appointments](http://18.191.176.209:8080/appointments)
 
 Se utilizo Docker Compose para orquestar el contenedor de la base de datos MySQL y la aplicacion Spring Boot.
 
